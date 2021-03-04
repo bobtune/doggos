@@ -6,6 +6,7 @@ buildscript {
 
         kotlin_version = "1.4.31"
         koin_version = '2.2.2'
+        retrofit_version = '2.9.0'
 
         junit_version = "4.13.2"
     }

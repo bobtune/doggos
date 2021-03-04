@@ -4,4 +4,7 @@ import org.koin.dsl.module
 
 val domainModule = module {
 
+    single { GetBreedsUseCaseImpl(get()) }
+
+    single { GetBreedDetailsUseCaseImpl(get()) }
 }

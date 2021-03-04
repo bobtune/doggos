@@ -12,6 +12,10 @@ android {
         versionCode 1
         versionName "1.0"
 
+        buildConfigField 'String', 'API_URL', '"https://api.thedogapi.com/v1/"'
+        // dog_api_key is defined in gradle.properties which is not committed to git
+        buildConfigField 'String', 'API_KEY', "\"${dog_api_key}\""
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -36,6 +40,8 @@ dependencies {
     implementation project(path: ':domain')
 
     implementation "org.koin:koin-core:$koin_version"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
 
     testImplementation "junit:junit:$junit_version"
 
