@@ -4,15 +4,21 @@ import com.tunesoftware.doggos.domain.Breed
 import com.tunesoftware.doggos.domain.BreedDetail
 import com.tunesoftware.doggos.domain.DogRepository
 
-class DogRepositoryImpl(private val dogApi: DogApi): DogRepository {
+class DogRepositoryImpl(
+    private val dogApi: DogApi,
+    private val breedMapper: Mapper<BreedDto, Breed>,
+    private val breedDetailMapper: Mapper<BreedDetailDto, BreedDetail>
+): DogRepository {
 
     override suspend fun getBreeds(): List<Breed> {
-        return dogApi.getBreeds().map {
-            Breed(it.id, it.name, it.breedGroup ?: "", it.image.url)
+        return dogApi.getBreeds().map { breedDto ->
+            breedMapper.map(breedDto)
         }
     }
 
-    override fun getBreedDetails(breedId: Int): BreedDetail {
-        return BreedDetail(1, "", "", "", "", "", BreedDetail.IntPair(1, 2), BreedDetail.IntPair(1, 2))
+    override suspend fun getBreedDetails(name: String): BreedDetail? {
+        return dogApi.getBreedDetails(name)?.let { breedDetailDto ->
+            breedDetailMapper.map(breedDetailDto)
+        }
     }
 }

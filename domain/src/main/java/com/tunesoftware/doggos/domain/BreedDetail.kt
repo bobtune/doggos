@@ -5,11 +5,11 @@ data class BreedDetail(
     val name: String,
     val group: String,
     val imageUrl: String,
-    val description: String,
+    val temperament: String,
     val bredFor: String,
-    val weight: IntPair,
-    val lifeSpan: IntPair
+    val weight: SizePair,
+    val lifeSpan: SizePair
 ) {
 
-    data class IntPair(val lower: Int, val upper: Int)
+    data class SizePair(val lower: Float, val upper: Float)
 }

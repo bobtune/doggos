@@ -4,5 +4,5 @@ interface DogRepository {
 
     suspend fun getBreeds(): List<Breed>
 
-    fun getBreedDetails(breedId: Int): BreedDetail
+    suspend fun getBreedDetails(name: String): BreedDetail?
 }
