@@ -4,7 +4,6 @@ data class BreedDetail(
     val id: Int,
     val name: String,
     val group: String,
-    val imageUrl: String,
     val temperament: String,
     val bredFor: String,
     val weight: SizePair,

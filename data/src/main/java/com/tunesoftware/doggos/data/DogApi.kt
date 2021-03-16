@@ -9,5 +9,5 @@ interface DogApi {
     suspend fun getBreeds(): List<BreedDto>
 
     @GET("breeds/search")
-    suspend fun getBreedDetails(@Query("q") name: String): BreedDetailDto?
+    suspend fun getBreedDetails(@Query("q") name: String): List<BreedDetailDto>
 }

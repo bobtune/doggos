@@ -11,7 +11,6 @@ class BreedDetailMapper(
             input.id,
             input.name,
             input.breedGroup ?: "",
-            input.image.url,
             input.temperament,
             input.bredFor,
             dimensionMapper.map(input.weight.metric),

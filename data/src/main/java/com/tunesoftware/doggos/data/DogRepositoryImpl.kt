@@ -17,7 +17,7 @@ class DogRepositoryImpl(
     }
 
     override suspend fun getBreedDetails(name: String): BreedDetail? {
-        return dogApi.getBreedDetails(name)?.let { breedDetailDto ->
+        return dogApi.getBreedDetails(name).getOrNull(0)?.let { breedDetailDto ->
             breedDetailMapper.map(breedDetailDto)
         }
     }
